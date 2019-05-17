@@ -2,11 +2,20 @@ package games.phoenix.map;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.Image;
+
 import games.phoenix.Enemy;
 
+/**
+ * 
+ * @author amos
+ *
+ * Object de chaque salle
+ */
 public class Room {
 	
 	private int difficulty;
+	private Image fond;
 	
 	private ArrayList<Enemy> enemies = new ArrayList<>();
 
@@ -33,7 +42,6 @@ public class Room {
 	 *  - obstacles
 	 */
 	private void init() {
-		
 		switch (difficulty) {
 		case 0:
 			
