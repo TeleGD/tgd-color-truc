@@ -22,15 +22,15 @@ public class Games extends AppMenu {
 		super.initSize (container, game, 600, 400);
 		super.init (container, game);
 		this.setTitle ("Menu des jeux");
-		this.setSubtitle ("Sans sous-titre");
+		this.setSubtitle ("Jouez à Phoenix Project, c'est bien mieux");
 		this.setMenu (Arrays.asList (new MenuItem [] {
-			new MenuItem (AppGame.TITLES [AppGame.GAMES_ROGUE_WORLD]) {
+			new MenuItem (AppGame.TITLES [AppGame.GAMES_PHOENIX_WORLD]) {
 				public void itemSelected () {
 					Players players = (Players) game.getState (AppGame.PAGES_PLAYERS);
 					Pause pause = (Pause) game.getState (AppGame.PAGES_PAUSE);
 					players.setPreviousID (AppGame.PAGES_GAMES);
-					players.setNextID (AppGame.GAMES_ROGUE_WORLD);
-					pause.setPreviousID (AppGame.GAMES_ROGUE_WORLD);
+					players.setNextID (AppGame.GAMES_PHOENIX_WORLD);
+					pause.setPreviousID (AppGame.GAMES_PHOENIX_WORLD);
 					pause.setNextID (AppGame.PAGES_GAMES);
 					game.enterState (AppGame.PAGES_PLAYERS);
 				}

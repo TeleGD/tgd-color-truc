@@ -1,4 +1,4 @@
-package games.rogue;
+package game.phoenix;
 
 import org.newdawn.slick.Color;
 
