@@ -1,6 +1,9 @@
 package games.zone;
 
 import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.state.StateBasedGame;
 
 public class Tile {
 
@@ -10,6 +13,10 @@ public class Tile {
 	public Tile(int type, Color color) {
 		this.setType(type);
 		this.setColor(color);
+	}
+
+	public void render(GameContainer container, StateBasedGame game, Graphics context) {
+
 	}
 
 	public void setType(int type) {
