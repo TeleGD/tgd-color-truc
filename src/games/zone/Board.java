@@ -1,4 +1,4 @@
 package games.zone;
 
-public class board {
+public class Board {
 }
