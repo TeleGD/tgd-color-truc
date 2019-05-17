@@ -5,12 +5,15 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
+
 public class Tile {
+
+	static int size = 10;
 
 	private int type; /* Type de case */
 	private Color color; /* Couleur de la peinture recouvrant */
 
-	public Tile(int type, Color color) {
+	public Tile(int type, Color color, int i, int j) {
 		this.setType(type);
 		this.setColor(color);
 	}
