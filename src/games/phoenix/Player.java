@@ -4,27 +4,44 @@ import org.newdawn.slick.Color;
 
 import app.AppPlayer;
 
+/**
+ * Classe gérant le joueur
+ */
 public class Player {
 
-	private Color fillColor;
-	private Color strokeColor;
+	/**
+	 * Numéro de la manette du joueur 
+	 */
 	private int controllerID;
+	
+	/**
+	 * Nom du joueur
+	 */
 	private String name;
 
+	/**
+	 * Constructeur du joueur
+	 * @param appPlayer
+	 */
 	public Player (AppPlayer appPlayer) {
-		int colorID = appPlayer.getColorID ();
 		int controllerID = appPlayer.getControllerID ();
 		String name = appPlayer.getName ();
-		this.fillColor = AppPlayer.FILL_COLORS [colorID];
-		this.strokeColor = AppPlayer.STROKE_COLORS [colorID];
 		this.controllerID = controllerID;
 		this.name = name;
 	}
 
+	/**
+	 * Accesseur de controllerID
+	 * @return
+	 */
 	public int getControllerID () {
 		return this.controllerID;
 	}
 
+	/**
+	 * Accesseur du nom du joueur
+	 * @return
+	 */
 	public String getName () {
 		return this.name;
 	}
