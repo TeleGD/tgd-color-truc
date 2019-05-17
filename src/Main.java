@@ -42,7 +42,7 @@ public final class Main {
 					this.addState (new pages.Games (AppGame.PAGES_GAMES));
 					this.addState (new pages.Players (AppGame.PAGES_PLAYERS));
 					this.addState (new pages.Pause (AppGame.PAGES_PAUSE));
-					this.addState (new game.phoenix.World (AppGame.GAMES_PHOENIX_WORLD));
+					this.addState (new games.phoenix.World (AppGame.GAMES_PHOENIX_WORLD));
 					this.addState (new games.zone.World (AppGame.GAMES_ZONE_WORLD));
 				}
 
