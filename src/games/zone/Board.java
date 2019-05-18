@@ -31,6 +31,15 @@ public class Board {
 	}
 
 	public void initBoard(){
+		//TODO : init procédural (avec de la diversité)
+		for (int i = 0 ; i < board.length ; i++) {
+			for (int j = 0 ; j < board[0].length ; j++){
+				board[i][j] = new Tile(0, null, i, j);
+			}
+		}
+	}
+
+	public void initBoard2(){
 		int x_top = ThreadLocalRandom.current().nextInt(widthLen);
 		int x_bottom = ThreadLocalRandom.current().nextInt(widthLen);
 		ArrayList<Integer> river = new ArrayList<>();

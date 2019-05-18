@@ -25,6 +25,7 @@ public class Tile {
 		//TODO : switch de type pour le render (nommer l'image en fonction du type)
 
 		// TODO : mettre des images stylées à la place des différentes couleurs :
+		// Affichage de la case :
 		switch (type){
 			case 0 : context.setColor(Color.white); // rien
 				break;
@@ -40,9 +41,15 @@ public class Tile {
 		}
 		context.fillRect(x, y, size, size);
 
-		// Affichage de la couleur :
-		context.setColor(color);
+		// Affichage de la couleur de peinture:
+		context.setColor(new Color(0f, 255f, 0f, 0.2f));
 		context.fillRect(x, y, size, size);
+
+		// Quadrillage :
+		//TODO : ne plus l'afficher plus tard
+		context.setColor(Color.red);
+		context.drawRect(x, y, size, size);
+
 	}
 
 	public void setType(int type) {
