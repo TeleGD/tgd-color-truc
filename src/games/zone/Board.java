@@ -17,6 +17,7 @@ public class Board {
 		board = new Tile[heightLen][widthLen];
 		this.widthLen = widthLen;
 		this.heightLen = heightLen;
+		initBoard();
 	}
 
 	public void initBoard(){

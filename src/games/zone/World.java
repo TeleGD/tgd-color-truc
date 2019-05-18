@@ -13,6 +13,7 @@ public class World extends AppWorld {
 
 	private Player [] players;
 	private String log;
+	private Board board;
 
 	public World (int ID) {
 		super (ID);
@@ -35,6 +36,8 @@ public class World extends AppWorld {
 		}
 		this.log = "";
 		System.out.println ("PLAY");
+
+		this.board = new Board( (int) Math.floor(container.getWidth() / Tile.size), (int) Math.floor(container.getHeight() / Tile.size));
 	}
 
 	@Override
@@ -96,6 +99,7 @@ public class World extends AppWorld {
 		if (this.log.length () != 0) {
 			System.out.print (this.log);
 		}
+		board.render(container, game, context);
 	}
 
 }
