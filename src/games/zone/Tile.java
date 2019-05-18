@@ -24,6 +24,22 @@ public class Tile {
 	public void render(GameContainer container, StateBasedGame game, Graphics context) {
 		//TODO : switch de type pour le render (nommer l'image en fonction du type)
 
+		// TODO : mettre des images stylées à la place des différentes couleurs :
+		switch (type){
+			case 0 : context.setColor(Color.white); // rien
+				break;
+			case 1 : context.setColor(Color.black); // pont
+				break;
+			case 2 : context.setColor(Color.darkGray); // dénivelé
+				break;
+			case 3 : context.setColor(Color.blue); // rivière
+				break;
+			case 4 : context.setColor(Color.gray); // pierre
+				break;
+			default: context.setColor(Color.transparent);
+		}
+		context.fillRect(x, y, size, size);
+
 		// Affichage de la couleur :
 		context.setColor(color);
 		context.fillRect(x, y, size, size);
