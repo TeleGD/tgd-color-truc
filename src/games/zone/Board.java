@@ -46,7 +46,7 @@ public class Board {
 		}
 		for (int j = 0; j < heightLen; j++) {
 			setBlock(j, river.get(j)-1, 3, Color.blue);
-			setBlock(j, river.get(j), 3, Color.blue);
+			setBlock(j, river.get(j)  , 3, Color.blue);
 			setBlock(j, river.get(j)+1, 3, Color.blue);
 		}
 		for (int i = 0 ; i < board.length ; i++) {
