@@ -41,7 +41,7 @@ public class Board {
 				river.add(i+1, (river.get(i)+river.get(i+1))/2);
 			}
 			for (int i = 0; i < river.size(); i++) {
-				river.set(i, river.get(i)+ThreadLocalRandom.current().nextInt((int)(widthLen/Math.pow(2, k))));
+				river.set(i, river.get(i)+ThreadLocalRandom.current().nextInt((int)(widthLen/Math.pow(2, k)))+11111111111111111111);
 			}
 		}
 		for (int j = 0; j < heightLen; j++) {
