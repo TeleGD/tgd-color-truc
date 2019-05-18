@@ -19,6 +19,16 @@ public class Board {
 		this.heightLen = heightLen;
 		initBoard();
 	}
+	
+	public void setBlock(int y, int x, int type, Color color) {
+		setBlock(y, x, new Tile(type, color, y, x));
+	}
+	
+	public void setBlock(int y, int x, Tile t) {
+		if (0 < y && y < heightLen && 0 < x && x < widthLen) {
+			board[y][x] = t;
+		}
+	}
 
 	public void initBoard(){
 		int x_top = ThreadLocalRandom.current().nextInt(widthLen);
@@ -35,9 +45,9 @@ public class Board {
 			}
 		}
 		for (int j = 0; j < heightLen; j++) {
-			board[j][river.get(j)-1] = new Tile(3, Color.blue, j, river.get(j)-1);
-			board[j][river.get(j)] = new Tile(3, Color.blue, j, river.get(j));
-			board[j][river.get(j)+1] = new Tile(3, Color.blue, j, river.get(j)+1);
+			setBlock(j, river.get(j)-1, 3, Color.blue);
+			setBlock(j, river.get(j), 3, Color.blue);
+			setBlock(j, river.get(j)+1, 3, Color.blue);
 		}
 		for (int i = 0 ; i < board.length ; i++) {
 			for (int j = 0 ; j < board[0].length ; j++){
