@@ -61,6 +61,14 @@ public class Tile {
 	public int getType() {
 		return this.type;
 	}
+	
+	public int getX() {
+		return this.x;
+	}
+	
+	public int getY() {
+		return this.y;
+	}
 
 	public Color getColor() {
 		return this.color;
