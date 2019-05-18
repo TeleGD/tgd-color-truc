@@ -9,6 +9,7 @@ public class Board {
 
 	public Board(int widthLen, int heightLen){
 		board = new Tile[heightLen][widthLen];
+		initBoard();
 	}
 
 	public void initBoard(){
