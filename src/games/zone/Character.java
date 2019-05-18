@@ -8,16 +8,19 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
+import app.AppInput;
+import app.AppPlayer;
+
 public abstract class Character {
 	private int life;
-	private int posX;
-	private int posY;
+	protected int posX;
+	protected int posY;
 	private float speed;
 	private int width;
 	private int height;
 	private Color color;
 	
-	public Character(int posX, int posY) {
+	public Character(int posX, int posY,AppPlayer appPlayer) {
 		this.life = 100;
 		this.posX = posX;
 		this.posY = posY;
@@ -33,8 +36,8 @@ public abstract class Character {
 		context.fillOval(posX, posY, width, height);
 	}
 	
-	public void update(GameContainer container, StateBasedGame game, int delta) {
-		//move(delta);
-	}
-
+	
+	
+	
+	
 }
