@@ -19,8 +19,9 @@ public abstract class Character {
 	private int width;
 	private int height;
 	private Color color;
+	private Weapon weapon;
 	
-	public Character(int posX, int posY,AppPlayer appPlayer) {
+	public Character(int posX, int posY, AppPlayer appPlayer) {
 		this.life = 100;
 		this.posX = posX;
 		this.posY = posY;
@@ -28,6 +29,7 @@ public abstract class Character {
 		this.width=50;
 		this.height=50;
 		color=Color.blue;
+		this.weapon = new Brush(100,100,20);
 	}
 	
 	
