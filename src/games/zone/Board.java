@@ -35,8 +35,8 @@ public class Board {
 		int x_bottom = ThreadLocalRandom.current().nextInt(widthLen);
 		ArrayList<Integer> river = new ArrayList<>();
 		river.add(x_top); river.add(x_bottom);
-		int n = (int)Math.log(heightLen)+1;
-		for (int k = 2; k < n; k++) {
+		int n = (int)(Math.log(heightLen)/Math.log(2))+1;
+		for (int k = 2; k < n + 2; k++) {
 			for (int i = river.size()-2; i >= 0; i--) {
 				river.add(i+1, (river.get(i)+river.get(i+1))/2);
 			}
