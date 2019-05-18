@@ -1,6 +1,5 @@
 package games.zone;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -9,22 +8,17 @@ import app.AppPlayer;
 
 public class Player extends Character{
 
-	private Color fillColor;
-	private Color strokeColor;
 	private int controllerID;
 	private String name;
 	private boolean moveLeft, moveRight, moveUp,moveDown;//,trigger;
-	
+
 	public Player (int posX, int posY,AppPlayer appPlayer) {
-		super(posX,posY,appPlayer);
-		int colorID = appPlayer.getColorID ();
+		super(posX,posY,appPlayer.getColorID ());
 		int controllerID = appPlayer.getControllerID ();
 		String name = appPlayer.getName ();
-		this.fillColor = AppPlayer.FILL_COLORS [colorID];
-		this.strokeColor = AppPlayer.STROKE_COLORS [colorID];
 		this.controllerID = controllerID;
 		this.name = name;
-	
+
 	}
 
 	public int getControllerID () {
@@ -34,7 +28,7 @@ public class Player extends Character{
 	public String getName () {
 		return this.name;
 	}
-	
+
 	public void update(GameContainer container, StateBasedGame game, int delta) {
 		AppInput input = (AppInput) container.getInput();
 		moveLeft = input.isControlPressed(AppInput.BUTTON_LEFT,controllerID);
@@ -44,7 +38,7 @@ public class Player extends Character{
 		//trigger = input.isControlPressed(AppInput.BUTTON_A, controllerID);
 		move(delta);
 	}
-	
+
 	public void move(int delta) {//Attention, là la vitesse du personnage est bien plus rapide en diagonale !
 		if(moveLeft) {
 			super.posX=posX-1;
