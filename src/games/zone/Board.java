@@ -25,13 +25,13 @@ public class Board {
 	}
 	
 	public void setBlock(int i, int j, Tile t) {
-		if (0 < i && i < heightLen && 0 < j && j < widthLen) {
+		if (0 <= i && i < heightLen && 0 <= j && j < widthLen) {
 			this.board[i][j] = t;
 		}
 	}
 	
 	public void setBlockType(int i, int j, int type) {
-		if (0 < i && i < heightLen && 0 < j && j < widthLen) {
+		if (0 <= i && i < heightLen && 0 <= j && j < widthLen) {
 			this.board[i][j].setType(type);
 		}
 	}
@@ -66,9 +66,11 @@ public class Board {
 			}
 		}
 		for (int i = 0; i < heightLen; i++) {
-			setBlockType(i, river.get(i)-1, 3);
-			setBlockType(i, river.get(i), 3);
-			setBlockType(i, river.get(i)+1, 3);
+			for (int di = -1; di <= 1; di++) {
+				for (int dj = -1; dj <= 1; dj++) {
+					setBlockType(i+di, river.get(i)+dj, 3);
+				}
+			}
 		}
 	}
 
