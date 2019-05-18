@@ -20,13 +20,19 @@ public class Board {
 		initBoard();
 	}
 	
-	public void setBlock(int y, int x, int type, Color color) {
-		setBlock(y, x, new Tile(type, color, y, x));
+	public void setBlock(int i, int j, int type, Color color) {
+		setBlock(i, j, new Tile(type, color, i, j));
 	}
 	
-	public void setBlock(int y, int x, Tile t) {
-		if (0 < y && y < heightLen && 0 < x && x < widthLen) {
-			board[y][x] = t;
+	public void setBlock(int i, int j, Tile t) {
+		if (0 < i && i < heightLen && 0 < j && j < widthLen) {
+			this.board[i][j] = t;
+		}
+	}
+	
+	public void setBlockType(int i, int j, int type) {
+		if (0 < i && i < heightLen && 0 < j && j < widthLen) {
+			this.board[i][j].setType(type);
 		}
 	}
 
@@ -39,32 +45,30 @@ public class Board {
 	}
 
 	public void initBoard(){
-		//TODO : corriger les problèmes de calculs
+		for (int i = 0 ; i < board.length ; i++) {
+			for (int j = 0 ; j < board[0].length ; j++){
+				board[i][j] = new Tile(0, null, i, j);
+			}
+		}
+		// Génération de la rivière :
 		int x_top = ThreadLocalRandom.current().nextInt(widthLen);
 		int x_bottom = ThreadLocalRandom.current().nextInt(widthLen);
 		ArrayList<Integer> river = new ArrayList<>();
 		river.add(x_top); river.add(x_bottom);
 		int n = (int)(Math.log(heightLen)/Math.log(2))+1;
-		for (int k = 2; k < n + 2; k++) {
+		for (int k = 1; k < n + 1; k++) {
 			for (int i = river.size()-2; i >= 0; i--) {
 				river.add(i+1, (river.get(i)+river.get(i+1))/2);
 			}
 			for (int i = 0; i < river.size(); i++) {
 				int caca = (int)(widthLen/Math.pow(2, k))+1;
-				System.out.println("lfdj " + caca);
 				river.set(i, river.get(i)+ThreadLocalRandom.current().nextInt(caca));
 			}
 		}
-		for (int j = 0; j < heightLen; j++) {
-			System.out.println("Bloc en "+j+", "+river.get(j));
-			setBlock(j, river.get(j)-1, 3, Color.blue);
-			setBlock(j, river.get(j)  , 3, Color.blue);
-			setBlock(j, river.get(j)+1, 3, Color.blue);
-		}
-		for (int i = 0 ; i < board.length ; i++) {
-			for (int j = 0 ; j < board[0].length ; j++){
-				board[i][j] = new Tile(0, null, i, j);
-			}
+		for (int i = 0; i < heightLen; i++) {
+			setBlockType(i, river.get(i)-1, 3);
+			setBlockType(i, river.get(i), 3);
+			setBlockType(i, river.get(i)+1, 3);
 		}
 	}
 
