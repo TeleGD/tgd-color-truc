@@ -100,6 +100,11 @@ public class World extends AppWorld {
 			System.out.print (this.log);
 		}
 		board.render(container, game, context);
+			
+		for (Player player : players) {
+			player.render(container, game, context);
+		}
+		
 	}
 
 }
