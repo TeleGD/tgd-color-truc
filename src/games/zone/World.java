@@ -114,10 +114,7 @@ public class World extends AppWorld {
 		/* Méthode exécutée environ 60 fois par seconde */
 		super.update (container, game, delta);
 		for(Character character : characters) {
-			if (character instanceof Player) {
-				Player player = (Player) character;
-				player.update(container, game, delta);				
-			}
+			character.update(container,game,delta);
 		}
 	}
 

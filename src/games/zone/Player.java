@@ -28,14 +28,7 @@ public class Player extends Character{
 		AppInput input = (AppInput) container.getInput();
 		
 		//trigger = input.isControlPressed(AppInput.BUTTON_A, controllerID);
-		move(input,delta);
-	}
-
-	public void move(AppInput input, int delta) {//Attention, là la vitesse du personnage est bien plus rapide en diagonale !
-		speedX = input.getAxisValue(AppInput.AXIS_XL, controllerID) * speed;
-		speedY = input.getAxisValue(AppInput.AXIS_YR, controllerID) * speed;
-		posX += speedX*delta;
-		posY += speedY*delta;
+		super.move(input.getAxisValue(AppInput.AXIS_XL, controllerID), input.getAxisValue(AppInput.AXIS_YR, controllerID), delta);
 		
 	}
 

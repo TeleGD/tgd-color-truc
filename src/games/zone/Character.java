@@ -8,6 +8,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
+import app.AppInput;
 import app.AppPlayer;
 
 public abstract class Character {
@@ -18,6 +19,8 @@ public abstract class Character {
 	private float speed;
 	private int width;
 	private int height;
+	private float speedX;
+	private float speedY;
 	
 	
 	private Weapon weapon;
@@ -51,6 +54,18 @@ public abstract class Character {
 		context.setColor(this.strokeColorAlpha);
 		context.drawOval(posX, posY, width, height);
 	}
+	
+	public abstract void update(GameContainer container, StateBasedGame game, int delta);
+	
+	public void move(float moveX, float moveY,  int delta) {
+		speedX = moveX*speed;//input.getAxisValue(AppInput.AXIS_XL, controllerID) * speed;
+		speedY = moveY*speed;//input.getAxisValue(AppInput.AXIS_YR, controllerID) * speed;
+		posX += speedX*delta;
+		posY += speedY*delta;
+		
+		
+	}
+
 
 	public void setAlpha(float alpha) {
 		this.alpha = alpha;
