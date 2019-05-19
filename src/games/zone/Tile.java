@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Tile {
 
-	public static int size = 32;   // Taille (hauteur et largueur) d'une Tile en pixels
+	public static int size = 10;   // Taille (hauteur et largueur) d'une Tile en pixels
 
 	private static int nbTypes = 5; //
 	private static Image[] typeImages = new Image[nbTypes];
