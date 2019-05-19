@@ -51,8 +51,8 @@ public class Board {
 			}
 		}
 		// Génération de la rivière :
-		int x_top = ThreadLocalRandom.current().nextInt(widthLen);
-		int x_bottom = ThreadLocalRandom.current().nextInt(widthLen);
+		int x_top = widthLen/4+ThreadLocalRandom.current().nextInt(widthLen/2);
+		int x_bottom = widthLen/4+ThreadLocalRandom.current().nextInt(widthLen/2);
 		ArrayList<Integer> river = new ArrayList<>();
 		river.add(x_top); river.add(x_bottom);
 		int n = (int)(Math.log(heightLen)/Math.log(2))+1;
@@ -61,8 +61,8 @@ public class Board {
 				river.add(i+1, (river.get(i)+river.get(i+1))/2);
 			}
 			for (int i = 0; i < river.size(); i++) {
-				int caca = (int)(widthLen/Math.pow(2, k))+1;
-				river.set(i, river.get(i)+ThreadLocalRandom.current().nextInt(caca));
+				int caca = (int)(120/Math.pow(2, k))+1;
+				river.set(i, river.get(i)+caca/2-ThreadLocalRandom.current().nextInt(caca));
 			}
 		}
 		for (int i = 0; i < heightLen; i++) {

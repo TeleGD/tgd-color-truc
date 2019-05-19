@@ -8,7 +8,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
-import app.AppInput;
 import app.AppPlayer;
 
 public abstract class Character {
@@ -27,12 +26,13 @@ public abstract class Character {
 	private Color strokeColor;
 	private Color fillColorAlpha;
 	private Color strokeColorAlpha;
+	private String name;
 
-	public Character(int posX, int posY, int colorID) {
+	public Character(int posX, int posY, int colorID, String name) {
 		this.life = 100;
 		this.posX = posX;
 		this.posY = posY;
-		this.speed = 0;
+		this.speed = 1;
 		this.width=50;
 		this.height=50;
 		this.weapon = new Brush(100,100,20);
@@ -41,6 +41,7 @@ public abstract class Character {
 		this.strokeColor = AppPlayer.STROKE_COLORS [colorID];
 		this.fillColorAlpha = new Color(this.fillColor.r, this.fillColor.g, this.fillColor.b, this.alpha);
 		this.strokeColorAlpha = new Color(this.strokeColor.r, this.strokeColor.g, this.strokeColor.b, this.alpha);
+		this.name = name;
 	}
 
 
@@ -59,6 +60,14 @@ public abstract class Character {
 
 	public float getAlpha() {
 		return this.alpha;
+	}
+
+	public String getName () {
+		return this.name;
+	}
+	
+	public float getSpeed() {
+		return this.speed;
 	}
 
 }

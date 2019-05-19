@@ -21,7 +21,7 @@ public class Tile {
 		typeImages[0] = spriteSheet.getSprite(31,11); // rien
 		typeImages[1] = spriteSheet.getSprite(14,16);   //Pont
 		typeImages[2] = spriteSheet.getSprite(5,1); // Dénivelé
-		typeImages[3] = spriteSheet.getSprite(21,12);   //Rivière
+		typeImages[3] = spriteSheet.getSprite(22,12);   //Rivière
 		typeImages[4] = spriteSheet.getSprite(13,14);   // Pierre
 	}
 
@@ -42,21 +42,7 @@ public class Tile {
 
 		// TODO : mettre des images stylées à la place des différentes couleurs :
 		// Affichage de la case :
-		context.drawImage(typeImages[type], x, y, 32, 32, size,size);
-//		switch (type){
-//			case 0 : context.setColor(Color.white); // rien
-//				break;
-//			case 1 : context.setColor(Color.black); // pont
-//				break;
-//			case 2 : context.setColor(Color.darkGray); // dénivelé
-//				break;
-//			case 3 : context.setColor(Color.blue); // rivière
-//				break;
-//			case 4 : context.setColor(Color.gray); // pierre
-//				break;
-//			default: context.setColor(Color.transparent);
-//		}
-//		context.fillRect(x, y, size, size);
+		context.drawImage(typeImages[type], x, y, x+size, y+size, 0, 0, typeImages[type].getWidth(), typeImages[type].getHeight());
 
 		// Affichage de la couleur de peinture:
 		if (color != null){

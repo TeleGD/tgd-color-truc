@@ -15,6 +15,4 @@ public abstract class Weapon {
 		this.life = life;
 		this.power = power;
 	}
-	
-	
 }
