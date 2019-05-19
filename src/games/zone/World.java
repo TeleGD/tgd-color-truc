@@ -68,6 +68,7 @@ public class World extends AppWorld {
 		AppInput input = (AppInput) user;
 		this.log = "";
 		for (Player player: this.players) {
+			//player.poll(container, game, user);
 			String name = player.getName ();
 			int controllerID = player.getControllerID ();
 			for (int i = 0, l = input.getControlCount (controllerID); i < l; i++) {
@@ -93,6 +94,9 @@ public class World extends AppWorld {
 	public void update (GameContainer container, StateBasedGame game, int delta) {
 		/* Méthode exécutée environ 60 fois par seconde */
 		super.update (container, game, delta);
+		for(Player player : players) {
+			player.update(container, game, delta);
+		}
 	}
 
 	@Override
