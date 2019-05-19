@@ -81,6 +81,7 @@ public class World extends AppWorld {
 		super.poll (container, game, user);
 		AppInput input = (AppInput) user;
 		this.log = "";
+
 		for (Character character: this.characters) {
 			if (!(character instanceof Player)) {
 				continue;
@@ -88,6 +89,7 @@ public class World extends AppWorld {
 			Player player = (Player) character;
 			String name = character.getName();
 			int controllerID = player.getControllerID();
+
 			for (int i = 0, l = input.getControlCount (controllerID); i < l; i++) {
 				if (input.isControlPressed (1 << i, controllerID)) {
 					this.log += "(" + name + ").isControlPressed: " + i + "\n";
@@ -111,6 +113,12 @@ public class World extends AppWorld {
 	public void update (GameContainer container, StateBasedGame game, int delta) {
 		/* Méthode exécutée environ 60 fois par seconde */
 		super.update (container, game, delta);
+		for(Character character : characters) {
+			if (character instanceof Player) {
+				Player player = (Player) character;
+				player.update(container, game, delta);				
+			}
+		}
 	}
 
 	@Override

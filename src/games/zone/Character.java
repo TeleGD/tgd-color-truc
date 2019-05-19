@@ -32,7 +32,7 @@ public abstract class Character {
 		this.life = 100;
 		this.posX = posX;
 		this.posY = posY;
-		this.speed = 0;
+		this.speed = 1;
 		this.width=50;
 		this.height=50;
 		this.weapon = new Brush(100,100,20);
@@ -64,6 +64,10 @@ public abstract class Character {
 
 	public String getName () {
 		return this.name;
+	}
+	
+	public float getSpeed() {
+		return this.speed;
 	}
 
 }
