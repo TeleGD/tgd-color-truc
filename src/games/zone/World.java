@@ -1,5 +1,7 @@
 package games.zone;
 
+import java.util.Random;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -7,11 +9,12 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import app.AppGame;
 import app.AppInput;
+import app.AppPlayer;
 import app.AppWorld;
 
 public class World extends AppWorld {
 
-	private Player [] players;
+	private Character [] characters;
 	private String log;
 	private Board board;
 
@@ -29,10 +32,24 @@ public class World extends AppWorld {
 	public void play (GameContainer container, StateBasedGame game) {
 		/* Méthode exécutée une unique fois au début du jeu */
 		AppGame appGame = (AppGame) game;
-		int n = appGame.appPlayers.size ();
-		this.players = new Player [n];
+		int n = appGame.appPlayers.size();
+		this.characters = new Character[4];
+		int colorIDs[] = new int[n];
 		for (int i = 0; i < n; i++) {
-			this.players [i] = new Player (i*500,i*500,appGame.appPlayers.get (i));//TODO : Faire mieux.
+			AppPlayer appPlayer = appGame.appPlayers.get(i);
+			this.characters[i] = new Player(i*500,i*500,appPlayer);//TODO : Faire mieux.*
+			colorIDs[i] = appPlayer.getColorID();
+		}
+		Random random = new Random();
+		for (int i = n; i < 4; i++) {
+			int colorID = random.nextInt(8);
+			for (int j = 0; j < i; j++) {
+				if (colorID == colorIDs[j]) {
+					i--;
+					break;
+				}
+			}
+			this.characters[i] = new AI(i*500,i*500, colorID);//TODO : Faire mieux.*
 		}
 		this.log = "";
 		System.out.println ("PLAY");
@@ -64,9 +81,13 @@ public class World extends AppWorld {
 		super.poll (container, game, user);
 		AppInput input = (AppInput) user;
 		this.log = "";
-		for (Player player: this.players) {
-			String name = player.getName ();
-			int controllerID = player.getControllerID ();
+		for (Character character: this.characters) {
+			if (!(character instanceof Player)) {
+				continue;
+			}
+			Player player = (Player) character;
+			String name = character.getName();
+			int controllerID = player.getControllerID();
 			for (int i = 0, l = input.getControlCount (controllerID); i < l; i++) {
 				if (input.isControlPressed (1 << i, controllerID)) {
 					this.log += "(" + name + ").isControlPressed: " + i + "\n";
@@ -100,11 +121,11 @@ public class World extends AppWorld {
 			System.out.print (this.log);
 		}
 		board.render(container, game, context);
-			
-		for (Player player : players) {
-			player.render(container, game, context);
+
+		for (Character character: characters) {
+			character.render(container, game, context);
 		}
-		
+
 	}
 
 }
