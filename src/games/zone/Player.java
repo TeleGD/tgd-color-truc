@@ -9,24 +9,16 @@ import app.AppPlayer;
 public class Player extends Character{
 
 	private int controllerID;
-	private String name;
 	private boolean moveLeft, moveRight, moveUp,moveDown;//,trigger;
 
 	public Player (int posX, int posY,AppPlayer appPlayer) {
-		super(posX,posY,appPlayer.getColorID ());
+		super(posX, posY, appPlayer.getColorID (), appPlayer.getName ());
 		int controllerID = appPlayer.getControllerID ();
-		String name = appPlayer.getName ();
 		this.controllerID = controllerID;
-		this.name = name;
-
 	}
 
 	public int getControllerID () {
 		return this.controllerID;
-	}
-
-	public String getName () {
-		return this.name;
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta) {
