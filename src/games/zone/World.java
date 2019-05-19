@@ -34,7 +34,7 @@ public class World extends AppWorld {
 		AppGame appGame = (AppGame) game;
 		int n = appGame.appPlayers.size();
 		this.characters = new Character[4];
-		int colorIDs[] = new int[n];
+		int colorIDs[] = new int[4];
 		for (int i = 0; i < n; i++) {
 			AppPlayer appPlayer = appGame.appPlayers.get(i);
 			this.characters[i] = new Player(i*500,i*500,appPlayer);//TODO : Faire mieux.*
@@ -124,8 +124,6 @@ public class World extends AppWorld {
 
 		for (Character character: characters) {
 			character.render(container, game, context);
-		}
-
 	}
 
 }
