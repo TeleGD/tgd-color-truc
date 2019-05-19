@@ -2,6 +2,9 @@ package games.zone;
 
 import app.AppLoader;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 
@@ -30,12 +33,14 @@ public class Tile {
 	private int type; /* Type de case */
 	private Color color; /* Couleur de la peinture recouvrant */
 	private int x, y;
+	private Shape shape;    // Shape pour les collisions
 
 	public Tile(int type, Color color, int i, int j) {
 		this.x = j * size;
 		this.y = i * size;
 		this.setType(type);
 		this.setColor(color);
+		this.shape = new Rectangle(this.x, this.y, size, size);
 	}
 
 	public void render(GameContainer container, StateBasedGame game, Graphics context) {
@@ -88,4 +93,20 @@ public class Tile {
 		}
 	}
 
+	/**
+	 * Renvoit la position (i,j) de la case dans le board contenant le point (x,y)
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public static Point getCoordTile(float x, float y){
+		int i, j;
+		i = (int) x / size;
+		j = (int) y / size;
+		return (new Point(i, j));
+	}
+
+	public Shape getShape() {
+		return shape;
+	}
 }

@@ -58,8 +58,8 @@ public class World extends AppWorld {
 
 		this.board = new Board( (int) Math.floor(container.getWidth() / Tile.size), (int) Math.floor(container.getHeight() / Tile.size));
 	}
-	
-	
+
+
 
 	@Override
 	public void stop (GameContainer container, StateBasedGame game) {
@@ -112,11 +112,11 @@ public class World extends AppWorld {
 			}
 		}
 	}
-	
+
 	public void addProjectile(Projectile proj) {
 		projectiles.add(proj);
 	}
-	
+
 	public void removeProjectile(Projectile proj) {
 		projectiles.remove(proj);
 	}
@@ -150,4 +150,7 @@ public class World extends AppWorld {
 		}
 	}
 
+	public Board getBoard() {
+		return board;
+	}
 }
