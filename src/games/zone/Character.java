@@ -58,8 +58,8 @@ public abstract class Character {
 	public abstract void update(GameContainer container, StateBasedGame game, int delta);
 	
 	public void move(float moveX, float moveY,  int delta) {
-		speedX = moveX*speed;//input.getAxisValue(AppInput.AXIS_XL, controllerID) * speed;
-		speedY = moveY*speed;//input.getAxisValue(AppInput.AXIS_YR, controllerID) * speed;
+		speedX = moveX/10;//*speed;//input.getAxisValue(AppInput.AXIS_XL, controllerID) * speed;
+		speedY = moveY/10;//*speed;//input.getAxisValue(AppInput.AXIS_YR, controllerID) * speed;
 		posX += speedX*delta;
 		posY += speedY*delta;
 		

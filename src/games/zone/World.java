@@ -89,7 +89,7 @@ public class World extends AppWorld {
 			Player player = (Player) character;
 			String name = character.getName();
 			int controllerID = player.getControllerID();
-
+			player.poll(container, game, user);
 			for (int i = 0, l = input.getControlCount (controllerID); i < l; i++) {
 				if (input.isControlPressed (1 << i, controllerID)) {
 					this.log += "(" + name + ").isControlPressed: " + i + "\n";
@@ -129,6 +129,7 @@ public class World extends AppWorld {
 
 		for (Character character: characters) {
 			character.render(container, game, context);
+		}
 	}
 
 }
