@@ -6,6 +6,7 @@ package games.zone;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 
 import app.AppInput;
@@ -17,9 +18,10 @@ public abstract class Character {
 	protected int posX;
 	protected int posY;
 	private float speed;
+	private float speedX;
+	private float speedY;
 	private int width;
 	private int height;
-	
 	
 	private Weapon weapon;
 	private float alpha;
@@ -32,7 +34,7 @@ public abstract class Character {
 		this.life = 100;
 		this.posX = posX;
 		this.posY = posY;
-		this.speed = 0;
+		this.speed = 1;
 		this.width=50;
 		this.height=50;
 		this.weapon = new Brush(100,100,20);
@@ -50,6 +52,17 @@ public abstract class Character {
 		context.setColor(this.strokeColorAlpha);
 		context.drawOval(posX, posY, width, height);
 	}
+	
+	public void update(GameContainer container, StateBasedGame game, int delta) {
+		
+		posX += speedX*delta;
+		
+		posY += speedY*delta;
+	}
+	
+	public void poll (GameContainer container, StateBasedGame game, Input user) {
+		
+	}
 
 	public void setAlpha(float alpha) {
 		this.alpha = alpha;
@@ -60,5 +73,28 @@ public abstract class Character {
 	public float getAlpha() {
 		return this.alpha;
 	}
+	
+	public float getSpeed() {
+		return speed;
+	}
+	
+	public void setSpeed(float speed) {
+		this.speed=speed;
+	}
 
+	public float getSpeedX() {
+		return this.speedX;
+	}
+	
+	public float getSpeedY() {
+		return this.speedY;
+	}
+
+	public void setSpeedX(float speedX) {
+		this.speedX=speedX;
+	}
+	
+	public void setSpeedY(float speedY) {
+		this.speedY=speedY;
+	}
 }

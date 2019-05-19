@@ -1,6 +1,7 @@
 package games.zone;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 
 import app.AppInput;
@@ -10,14 +11,16 @@ public class Player extends Character{
 
 	private int controllerID;
 	private String name;
-	private boolean moveLeft, moveRight, moveUp,moveDown;//,trigger;
-
+	
+	private float speed;
+	
 	public Player (int posX, int posY,AppPlayer appPlayer) {
 		super(posX,posY,appPlayer.getColorID ());
 		int controllerID = appPlayer.getControllerID ();
 		String name = appPlayer.getName ();
 		this.controllerID = controllerID;
 		this.name = name;
+		this.speed = super.getSpeed();
 
 	}
 
@@ -30,28 +33,22 @@ public class Player extends Character{
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta) {
-		AppInput input = (AppInput) container.getInput();
-		moveLeft = input.isControlPressed(AppInput.BUTTON_LEFT,controllerID);
-		moveRight = input.isControlPressed(AppInput.BUTTON_RIGHT,controllerID);
-		moveUp = input.isControlPressed(AppInput.BUTTON_UP,controllerID);
-		moveDown = input.isControlPressed(AppInput.BUTTON_DOWN,controllerID);
-		//trigger = input.isControlPressed(AppInput.BUTTON_A, controllerID);
-		move(delta);
+		super.update(container, game, delta);
 	}
+	
+	public void poll (GameContainer container, StateBasedGame game, Input user) {
+		move(user);
+	}
+	private void move(Input input){
+		//System.out.println(input.getAxisValue(input.AXIS_XL, controllerID));
+		//System.out.println(input.getAxisValue(input.AXIS_XL, controllerID) * speed);
+		AppInput appInput= (AppInput) input;
+		System.out.println(input.getAxisValue(appInput.AXIS_XL, controllerID));
+		super.setSpeedX(input.getAxisValue(AppInput.AXIS_XL, controllerID) * speed);
+		super.setSpeedY(input.getAxisValue(AppInput.AXIS_YR, controllerID) * speed);
 
-	public void move(int delta) {//Attention, là la vitesse du personnage est bien plus rapide en diagonale !
-		if(moveLeft) {
-			super.posX=posX-1;
-		}
-		if(moveRight) {
-			super.posX=posX-1;
-		}
-		if(moveUp) {
-			super.posY=posY+1;
-		}
-		if(moveDown) {
-			super.posY=posY-1;
-		}
+		System.out.println(posX+" ; "+posY+" ; "+super.getSpeedX()+" ; "+super.getSpeedY());
 	}
+	
 
 }
