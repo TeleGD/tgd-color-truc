@@ -14,6 +14,7 @@ public class Projectile {
 	private double speed;
 	private double direction;
 	private double distance;
+	private World world;
 	
 	public Projectile(int x0, int y0, double speed, double direction, int reach, int radius, int shapeType, World world) {
 		this.reach = reach;
@@ -23,6 +24,7 @@ public class Projectile {
 		this.posY = y0;
 		this.speed = speed;
 		this.direction = direction;
+		this.world = world;
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta) {
