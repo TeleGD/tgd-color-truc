@@ -1,5 +1,6 @@
 package games.zone;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.newdawn.slick.GameContainer;
@@ -17,6 +18,7 @@ public class World extends AppWorld {
 	private Character [] characters;
 	private String log;
 	private Board board;
+	private ArrayList<Projectile> projectiles = new ArrayList<>();
 
 	public World (int ID) {
 		super (ID);
@@ -56,6 +58,8 @@ public class World extends AppWorld {
 
 		this.board = new Board( (int) Math.floor(container.getWidth() / Tile.size), (int) Math.floor(container.getHeight() / Tile.size));
 	}
+
+
 
 	@Override
 	public void stop (GameContainer container, StateBasedGame game) {
@@ -109,12 +113,23 @@ public class World extends AppWorld {
 		}
 	}
 
+	public void addProjectile(Projectile proj) {
+		projectiles.add(proj);
+	}
+
+	public void removeProjectile(Projectile proj) {
+		projectiles.remove(proj);
+	}
+
 	@Override
 	public void update (GameContainer container, StateBasedGame game, int delta) {
 		/* Méthode exécutée environ 60 fois par seconde */
 		super.update (container, game, delta);
-		for(Character character : characters) {
+		for (Character character : characters) {
 			character.update(container,game,delta);
+		}
+		for (Projectile proj : projectiles) {
+			proj.update(container, game, delta);
 		}
 	}
 
@@ -130,6 +145,13 @@ public class World extends AppWorld {
 		for (Character character: characters) {
 			character.render(container, game, context);
 		}
+
+		for (Projectile proj : projectiles) {
+			proj.render(container, game, context);
+		}
 	}
 
+	public Board getBoard() {
+		return board;
+	}
 }

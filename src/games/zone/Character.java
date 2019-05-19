@@ -38,7 +38,7 @@ public abstract class Character {
 		this.speed = 1;
 		this.width=50;
 		this.height=50;
-		this.weapon = new Brush(100,100,20);
+		this.weapon = new Brush(100,100,20,null);
 		this.alpha = .5f;
 		this.fillColor = AppPlayer.FILL_COLORS [colorID];
 		this.strokeColor = AppPlayer.STROKE_COLORS [colorID];
