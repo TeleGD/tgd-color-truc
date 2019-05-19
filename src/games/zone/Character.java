@@ -18,6 +18,9 @@ public abstract class Character {
 	private float speed;
 	private int width;
 	private int height;
+	
+	
+	private Weapon weapon;
 	private float alpha;
 	private Color fillColor;
 	private Color strokeColor;
@@ -32,6 +35,7 @@ public abstract class Character {
 		this.speed = 0;
 		this.width=50;
 		this.height=50;
+		this.weapon = new Brush(100,100,20);
 		this.alpha = .5f;
 		this.fillColor = AppPlayer.FILL_COLORS [colorID];
 		this.strokeColor = AppPlayer.STROKE_COLORS [colorID];
