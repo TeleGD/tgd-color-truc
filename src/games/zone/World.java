@@ -129,8 +129,6 @@ public class World extends AppWorld {
 
 		for (Character character: characters) {
 			character.render(container, game, context);
-		}
-
 	}
 
 }

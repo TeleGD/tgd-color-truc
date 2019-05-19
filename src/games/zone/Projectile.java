@@ -11,16 +11,20 @@ public class Projectile {
 	private int shapeType;
 	private int posX;
 	private int posY;
+	private double speed;
+	private double direction;
 	
-	public Projectile(int x0, int y0, int reach, int radius, int shapeType) {
+	public Projectile(int x0, int y0, double speed, double direction, int reach, int radius, int shapeType) {
 		this.reach = reach;
 		this.radius = radius;
 		this.shapeType = shapeType;
 		this.posX = x0;
 		this.posY = y0;
+		this.speed = speed;
+		this.direction = direction;
 	}
 	
-	public void update(GameContainer container, StateBasedGame game, int delta, double speed, double direction) {
+	public void update(GameContainer container, StateBasedGame game, int delta) {
 		double speedX = speed*Math.cos(direction);
 		double speedY = speed*Math.sin(direction);
 		this.posX += (int)(speedX*delta);
