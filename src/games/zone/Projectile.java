@@ -15,7 +15,7 @@ public class Projectile {
 	private double direction;
 	private double distance;
 	
-	public Projectile(int x0, int y0, double speed, double direction, int reach, int radius, int shapeType) {
+	public Projectile(int x0, int y0, double speed, double direction, int reach, int radius, int shapeType, World world) {
 		this.reach = reach;
 		this.radius = radius;
 		this.shapeType = shapeType;
