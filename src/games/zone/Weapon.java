@@ -1,5 +1,6 @@
 package games.zone;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 
 import app.AppLoader;
@@ -11,6 +12,7 @@ public abstract class Weapon {
 	private Image img = AppLoader.loadPicture("default.png");
 	protected Projectile proj;
 	protected World world;
+	protected Color color;
 	
 	public Weapon(int capacity, int life, int power, World world) {
 		this.capacity = capacity;
@@ -20,4 +22,8 @@ public abstract class Weapon {
 	}
 	
 	public abstract void shoot(int x0, int y0, double direction);
+	
+	public void pick(Character character) {
+		//TODO: prendre la couleur du joueur et lier cette arme au character
+	}
 }
