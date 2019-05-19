@@ -13,6 +13,7 @@ public class Projectile {
 	private int posY;
 	private double speed;
 	private double direction;
+	private double distance;
 	
 	public Projectile(int x0, int y0, double speed, double direction, int reach, int radius, int shapeType) {
 		this.reach = reach;
@@ -25,10 +26,17 @@ public class Projectile {
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta) {
-		double speedX = speed*Math.cos(direction);
-		double speedY = speed*Math.sin(direction);
-		this.posX += (int)(speedX*delta);
-		this.posY += (int)(speedY*delta);
+		if (this.distance < reach) {
+			double speedX = speed*Math.cos(direction);
+			double speedY = speed*Math.sin(direction);
+			this.posX += (int)(speedX*delta);
+			this.posY += (int)(speedY*delta);
+			this.distance += speed*delta;
+		}
+	}
+	
+	public boolean hasDone() {
+		return this.distance >= reach;
 	}
 	
 	public void render (GameContainer container, StateBasedGame game, Graphics context) {

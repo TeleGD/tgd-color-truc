@@ -9,10 +9,13 @@ public abstract class Weapon {
 	private int life;
 	private int power;
 	private Image img = AppLoader.loadPicture("default.png");
+	protected Projectile proj;
 	
 	public Weapon(int capacity, int life, int power) {
 		this.capacity = capacity;
 		this.life = life;
 		this.power = power;
 	}
+	
+	public abstract void shoot(int x0, int y0, double direction);
 }
