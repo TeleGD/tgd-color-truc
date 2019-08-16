@@ -1,4 +1,4 @@
-package games.zone;
+package games.colorTruc;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -19,7 +19,7 @@ public class Player extends Character{
 	private boolean down;
 	private boolean left;
 	private boolean right;
-	
+
 	public Player (int posX, int posY,AppPlayer appPlayer) {
 		super(posX, posY, appPlayer.getColorID (), appPlayer.getName ());
 		int controllerID = appPlayer.getControllerID ();
@@ -33,7 +33,7 @@ public class Player extends Character{
 
 	public void update(GameContainer container, StateBasedGame game, int delta) {
 		//AppInput input = (AppInput) container.getInput();
-		
+
 		//trigger = input.isControlPressed(AppInput.BUTTON_A, controllerID);
 		if(up==true) {
 			moveY=-1;
@@ -54,10 +54,11 @@ public class Player extends Character{
 			moveX=0;
 		}
 		super.move(moveX , moveY, delta);
-		
+
 	}
+
 	public void poll (GameContainer container, StateBasedGame game, Input user) {
-		AppInput input = (AppInput) user; 
+		AppInput input = (AppInput) user;
 		up=input.isButtonPressed(AppInput.BUTTON_UP, this.controllerID);//moveX=input.getAxisValue(AppInput.AXIS_XL, controllerID);
 		down=input.isButtonPressed(AppInput.BUTTON_DOWN, this.controllerID);
 		left=input.isButtonPressed(AppInput.BUTTON_LEFT, this.controllerID);
@@ -66,6 +67,5 @@ public class Player extends Character{
 		System.out.println(up+"; "+down+" ; "+left+" ; "+right);
 		System.out.println(moveX+";"+moveY);
 	}
-	
 
 }

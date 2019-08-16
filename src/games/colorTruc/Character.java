@@ -1,7 +1,4 @@
-package games.zone;
-
-
-
+package games.colorTruc;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -21,8 +18,7 @@ public abstract class Character {
 	private int height;
 	private float speedX;
 	private float speedY;
-	
-	
+
 	private Weapon weapon;
 	private float alpha;
 	private Color fillColor;
@@ -54,18 +50,17 @@ public abstract class Character {
 		context.setColor(this.strokeColorAlpha);
 		context.drawOval(posX, posY, width, height);
 	}
-	
+
 	public abstract void update(GameContainer container, StateBasedGame game, int delta);
-	
+
 	public void move(float moveX, float moveY,  int delta) {
 		speedX = moveX/10;//*speed;//input.getAxisValue(AppInput.AXIS_XL, controllerID) * speed;
 		speedY = moveY/10;//*speed;//input.getAxisValue(AppInput.AXIS_YR, controllerID) * speed;
 		posX += speedX*delta;
 		posY += speedY*delta;
-		
-		
-	}
 
+
+	}
 
 	public void setAlpha(float alpha) {
 		this.alpha = alpha;
@@ -80,7 +75,7 @@ public abstract class Character {
 	public String getName () {
 		return this.name;
 	}
-	
+
 	public float getSpeed() {
 		return this.speed;
 	}

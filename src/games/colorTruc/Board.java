@@ -1,4 +1,4 @@
-package games.zone;
+package games.colorTruc;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -9,6 +9,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Board {
+
 	private Tile[][] board;
 	private int widthLen;
 	private int heightLen;
@@ -19,17 +20,17 @@ public class Board {
 		this.heightLen = heightLen;
 		initBoard();
 	}
-	
+
 	public void setBlock(int i, int j, int type, Color color) {
 		setBlock(i, j, new Tile(type, color, i, j));
 	}
-	
+
 	public void setBlock(int i, int j, Tile t) {
 		if (0 <= i && i < heightLen && 0 <= j && j < widthLen) {
 			this.board[i][j] = t;
 		}
 	}
-	
+
 	public void setBlockType(int i, int j, int type) {
 		if (0 <= i && i < heightLen && 0 <= j && j < widthLen) {
 			this.board[i][j].setType(type);
@@ -85,4 +86,5 @@ public class Board {
 	public Tile[][] getBoard() {
 		return board;
 	}
+
 }

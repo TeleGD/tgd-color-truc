@@ -1,4 +1,4 @@
-package games.zone;
+package games.colorTruc;
 
 import app.AppLoader;
 import org.newdawn.slick.*;
@@ -6,8 +6,6 @@ import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
-
-
 
 public class Tile {
 
@@ -27,8 +25,6 @@ public class Tile {
 		typeImages[3] = spriteSheet.getSprite(22,12);   //Rivière
 		typeImages[4] = spriteSheet.getSprite(13,14);   // Pierre
 	}
-
-
 
 	private int type; /* Type de case */
 	private Color color; /* Couleur de la peinture recouvrant */
@@ -72,11 +68,11 @@ public class Tile {
 	public int getType() {
 		return this.type;
 	}
-	
+
 	public int getX() {
 		return this.x;
 	}
-	
+
 	public int getY() {
 		return this.y;
 	}
@@ -109,4 +105,5 @@ public class Tile {
 	public Shape getShape() {
 		return shape;
 	}
+
 }

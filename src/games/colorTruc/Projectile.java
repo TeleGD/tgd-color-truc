@@ -1,4 +1,4 @@
-package games.zone;
+package games.colorTruc;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -8,6 +8,7 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Projectile {
+
 	private int reach;
 	private int radius;
 	private Shape shapeImpact;
@@ -30,7 +31,7 @@ public class Projectile {
 		this.world = world;
 		this.color = color;
 	}
-	
+
 	public void update(GameContainer container, StateBasedGame game, int delta) {
 		if (this.distance < reach) {
 			double speedX = speed*Math.cos(direction);
@@ -44,7 +45,7 @@ public class Projectile {
 	public boolean hasDone() {
 		return this.distance >= reach;
 	}
-	
+
 	public void render (GameContainer container, StateBasedGame game, Graphics context) {
 		context.setColor(Color.black);
 		// TODO: formes différentes en fonction de shapeImpact
@@ -67,7 +68,5 @@ public class Projectile {
 		//TODO : retirer ce projectile de world !
 
 	}
-
-
 
 }
