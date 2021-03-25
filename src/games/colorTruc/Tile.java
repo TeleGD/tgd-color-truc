@@ -16,7 +16,7 @@ public class Tile {
 	static {
 		// Chargements des sprites dans les cases :
 		SpriteSheet spriteSheet = null;
-		Image spriteImage = AppLoader.loadPicture("/images/terrain_atlas.png");
+		Image spriteImage = AppLoader.loadPicture("/images/colorTruc/terrain_atlas.png");
 		spriteSheet = new SpriteSheet(spriteImage, 32, 32);
 
 		typeImages[0] = spriteSheet.getSprite(31,11); // rien

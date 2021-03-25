@@ -10,7 +10,7 @@ public abstract class Weapon {
 	private int capacity;
 	private int life;
 	private int power;
-	private Image img = AppLoader.loadPicture("default.png");
+	private Image img = AppLoader.loadPicture(null);
 	protected Projectile proj;
 	protected World world;
 	protected Color color;

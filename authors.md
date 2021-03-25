@@ -1,4 +1,4 @@
 - David Forlen (@DavidForlen)
 - Fabien Bernier (@Locust2520)
 - Océane Chazé (@OceaneC)
-- Tristan Le Godais (@TrisTOON)
+- Tristan Le Godais (@PolariTOON)
